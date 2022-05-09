@@ -23,6 +23,10 @@ function findAll(findAllWhere?: FindAllWhere) {
   });
 }
 
+function resetDatabase() {
+  return prisma.recommendation.deleteMany();
+}
+
 function getAmountByScore(take: number) {
   return prisma.recommendation.findMany({
     orderBy: { score: 'desc' },
@@ -77,4 +81,5 @@ export const recommendationRepository = {
   updateScore,
   getAmountByScore,
   remove,
+  resetDatabase,
 };
