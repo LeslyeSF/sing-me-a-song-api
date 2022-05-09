@@ -1,0 +1,108 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+import { prisma } from '../src/database.js';
+
+async function main() {
+  // upsert = update/insert
+  // melhor que create por que pode dar conflito em campos unicos
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 1' },
+    update: {},
+    create: {
+      name: 'recommendation 1',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 2' },
+    update: {},
+    create: {
+      name: 'recommendation 2',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 3' },
+    update: {},
+    create: {
+      name: 'recommendation 3',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 4' },
+    update: {},
+    create: {
+      name: 'recommendation 4',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 5' },
+    update: {},
+    create: {
+      name: 'recommendation 5',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 6' },
+    update: {},
+    create: {
+      name: 'recommendation 6',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 7' },
+    update: {},
+    create: {
+      name: 'recommendation 7',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 8' },
+    update: {},
+    create: {
+      name: 'recommendation 8',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 9' },
+    update: {},
+    create: {
+      name: 'recommendation 9',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+
+  await prisma.recommendation.upsert({
+    where: { name: 'recommendation 10' },
+    update: {},
+    create: {
+      name: 'recommendation 10',
+      youtubeLink: 'https://www.youtube.com/watch?v=-_mioDGQrXc',
+    },
+  });
+}
+
+main()
+  .catch((e) => {
+    console.log(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

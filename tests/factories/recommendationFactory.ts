@@ -4,12 +4,16 @@ import { prisma } from '../../src/database.js';
 import { recommendations } from './recommendationBodyFactory.js';
 
 export default async function recommendationFactory(
-  recommendation: recommendations
+  recommendation: recommendations,
+  score: number
 ) {
-  await prisma.recommendation.create({
+  const response = await prisma.recommendation.create({
     data: {
       name: recommendation.name,
       youtubeLink: recommendation.youtubeLink,
+      score,
     },
   });
+
+  return response;
 }
